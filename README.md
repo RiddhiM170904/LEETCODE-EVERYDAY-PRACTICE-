@@ -1,1 +1,1 @@
-Everyday Leetcode Practicing 
+Everyday Leetcode Practice
