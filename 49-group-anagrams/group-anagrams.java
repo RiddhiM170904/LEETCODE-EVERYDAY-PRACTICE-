@@ -2,7 +2,6 @@ class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         //ek hashmap banaya h taki voh string aur usse valid esa valid anagram store krr skee
         HashMap<String,List<String>> map = new HashMap<>(); 
-
         for(String str : strs){//access kre elements froma string
             char[] arr = str.toCharArray();//usko sort krne ke liye arr banaya 
             Arrays.sort(arr);//sort kiya
