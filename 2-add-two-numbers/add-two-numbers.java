@@ -9,31 +9,53 @@
  * }
  */
 class Solution {
+    public ListNode reverse(ListNode head){
+        ListNode curr =head;
+        ListNode prev = null;
+        ListNode next = null;
+        while(curr!=null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int carry = 0; // carry over krne liye
-        ListNode head1 = l1;//head1 define kia
-        ListNode head2 = l2;//head2 define kiya
-        ListNode n = new ListNode(0); // nayi ll banayi for storing answer
-        ListNode curr = n;//uss ll ka head define kiya
-        
-        while(head1 != null || head2 != null){//jab tk dono ke head null nhi ho jate h 
-            int sum =carry;//sum ko carry kii value assign kii
-            if(head1!=null){
-                sum += head1.val;//add krne ka part
-                head1 = head1.next;//next
-
-            }if(head2 != null){
-                sum += head2.val;//add ka part
-                head2 = head2.next; // next
+        ListNode l = null;
+        ListNode head = null;
+        ListNode tail = null;
+        // l1 = reverse(l1);
+        // l2 = reverse(l2);
+        int carry = 0;
+        while(l1!=null || l2!=null){
+            int sum = carry;
+            if(l1!=null){
+                sum = sum + l1.val;
+                l1 = l1.next;
             }
-            curr.next = new ListNode(sum%10);//final node mein add krne wali value nikali 
-            curr = curr.next;//next
-            carry = sum/10;//carry nikala
-        }
-        if (carry != 0) {
-            curr.next = new ListNode(carry);//agar sb khtm hone ke baad carry bachta h tohh next node pr laga dena
-        }
-        return n.next;// final ll print krwa diya 
+            if(l2!=null){
+                sum = sum + l2.val;
+                l2 = l2.next;
+            }
 
+            int rem = sum%10;
+            carry = sum/10;
+            l = new ListNode(rem);
+            if(head == null){
+                head = l;
+                tail = l;
+            }else{
+                tail.next = l;
+                tail = l;
+            }
+            
+        }
+        if(carry>0){
+                l = new ListNode(carry);
+                tail.next = l;
+                tail = l;
+            }
+        return head;
     }
 }
