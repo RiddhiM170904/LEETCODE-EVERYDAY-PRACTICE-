@@ -1,1 +1,1 @@
-Practicing LeetCode, github update
+Practicing LeetCode
