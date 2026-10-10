@@ -3,13 +3,12 @@ class Solution {
         Stack<Character> st = new Stack<>();
         for(int i=0;i<s.length();i++){
             char ch = s.charAt(i);
-            if(ch=='(' || ch=='{' || ch=='['){
-                st.push(ch);
-            }else{
-                if(!st.isEmpty() && ((ch==')' && st.peek()=='(') || (ch=='}' && st.peek()=='{') || (ch==']' && st.peek()=='['))){
+            if(ch=='(' || ch=='{' || ch =='[') st.push(ch);
+            else{
+                if(!st.isEmpty() && ((st.peek()=='(' && ch==')') || (st.peek()=='{' && ch=='}') || (st.peek()=='[' && ch==']'))){
                     st.pop();
                 }else{
-                    return false;
+                    if((ch==')' || ch=='}' || ch ==']') ) return false;
                 }
             }
         }
