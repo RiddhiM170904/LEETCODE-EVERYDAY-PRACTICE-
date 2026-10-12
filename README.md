@@ -1,1 +1,1 @@
-Practicing LeetCode
+ LeetCode
