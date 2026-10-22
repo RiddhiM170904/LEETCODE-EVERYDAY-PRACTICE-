@@ -1,8 +1,8 @@
 class Solution {
     public boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
-        for(int i=0;i<s.length();i++){
-            char ch = s.charAt(i);
+        for(int j=0;j<s.length();j++){
+            char ch = s.charAt(j);
             if(ch=='(' || ch=='{' || ch =='[') st.push(ch);
             else{
                 if(!st.isEmpty() && ((st.peek()=='(' && ch==')') || (st.peek()=='{' && ch=='}') || (st.peek()=='[' && ch==']'))){
